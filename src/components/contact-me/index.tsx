@@ -15,8 +15,10 @@ import { MdEmail } from "react-icons/md";
 import { BiWorld } from "react-icons/bi";
 import { CONTACT_DATA } from "../../constants/contact-data";
 import gokuImage from "../../assets/image/goku.png";
+import { useNav } from "../../customHooks/useNav";
 
 const ContactMe = () => {
+  const contactRef = useNav("Contact");
   const getIcon = (name: string) => {
     switch (name) {
       case "Address":
@@ -30,7 +32,15 @@ const ContactMe = () => {
     }
   };
   return (
-    <Box width="100%" paddingX="60px" marginBottom={5}>
+    <Box
+      width="100%"
+      paddingX="60px"
+      marginTop="-70px"
+      paddingTop="70px"
+      marginBottom={5}
+      id="contact-section"
+      ref={contactRef}
+    >
       <Heading textAlign="center" fontSize="30px" mb={15}>
         CONTACT ME
       </Heading>

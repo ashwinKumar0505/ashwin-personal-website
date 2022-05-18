@@ -7,17 +7,26 @@ import ProjectSection from "./components/projects-section";
 import OpenSourceContributionSection from "./components/open-source-contribution-section";
 import BlogsSection from "./components/blogs-section";
 import ContactMe from "./components/contact-me";
+import Header from "./components/header";
+import { NavContext } from "./context/NavContest";
 
-export const App = () => (
-  <ChakraProvider>
-    <Box height="100vh" width="100vw" overflowY="scroll">
-      <TitleSection />
-      <AboutMeSection />
-      <ResumeSection />
-      <ProjectSection />
-      <OpenSourceContributionSection />
-      <BlogsSection />
-      <ContactMe />
-    </Box>
-  </ChakraProvider>
-);
+export const App = () => {
+  const [activeNav, setActiveNav] = React.useState("Home");
+  const updateActiveNav = (name: string) => setActiveNav(name);
+  return (
+    <ChakraProvider>
+      <NavContext.Provider value={{ activeNav, updateActiveNav }}>
+        <Box height="100vh" width="100vw" overflowY="scroll">
+          <Header />
+          <TitleSection />
+          <AboutMeSection />
+          <ResumeSection />
+          <ProjectSection />
+          <OpenSourceContributionSection />
+          <BlogsSection />
+          <ContactMe />
+        </Box>
+      </NavContext.Provider>
+    </ChakraProvider>
+  );
+};

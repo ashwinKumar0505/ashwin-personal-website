@@ -3,11 +3,21 @@ import {
   COMPANY_PROJECTS_DATA,
   PERSONAL_PROJECTS_DATA,
 } from "../../constants/projects.data";
+import { useNav } from "../../customHooks/useNav";
 import Card from "../card";
 
 const ProjectSection = () => {
+  const projectRef = useNav("Projects");
   return (
-    <Box width="100%" paddingX="60px" marginBottom={20}>
+    <Box
+      width="100%"
+      paddingX="60px"
+      marginTop="-70px"
+      paddingTop="70px"
+      marginBottom={16}
+      id="projects-section"
+      ref={projectRef}
+    >
       <Heading textAlign="center" fontSize="30px" mb={15}>
         PROJECTS
       </Heading>

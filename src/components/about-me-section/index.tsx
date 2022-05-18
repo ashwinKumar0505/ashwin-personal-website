@@ -1,32 +1,19 @@
 import { Box, Button, Flex, Heading, Img, Text } from "@chakra-ui/react";
 import MyPhoto from "../../assets/image/my-photo.jpg";
+import { ABOUT_ME_DATA } from "../../constants/about-me-data";
+import { useNav } from "../../customHooks/useNav";
 
 const AboutMeSection = () => {
-  const informationDetails: { key: string; value: string }[] = [
-    {
-      key: "Name",
-      value: "Ashwin Kumar",
-    },
-    {
-      key: "Date of birth",
-      value: "05-05-1999",
-    },
-    {
-      key: "Address",
-      value: "30/2b Thiruvalluvar Road, Virudhunagar",
-    },
-    {
-      key: "Zip Code",
-      value: "626002",
-    },
-    {
-      key: "Email",
-      value: "ashwin.gps@gmail.com",
-    },
-  ];
-
+  const aboutRef = useNav("About");
   return (
-    <Flex width="100%" paddingX="60px" marginBottom={20}>
+    <Flex
+      width="100%"
+      paddingX="60px"
+      marginTop="-70px"
+      paddingTop="70px"
+      id="about-section"
+      ref={aboutRef}
+    >
       <Img width="50%" height="100%" src={MyPhoto} alt="my-photo" />
       <Box p="3rem" width="50%">
         <Heading marginBottom={5} fontSize="50px">
@@ -47,7 +34,7 @@ const AboutMeSection = () => {
           design principles.
         </Text>
         <Box>
-          {informationDetails.map((detail) => (
+          {ABOUT_ME_DATA.map((detail) => (
             <Flex marginBottom="10px">
               <Text width="130px" color="black" fontWeight="600">
                 {detail.key}:

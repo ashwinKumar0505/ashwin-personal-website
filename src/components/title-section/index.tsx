@@ -1,9 +1,17 @@
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import Typical from "react-typical";
+import { useNav } from "../../customHooks/useNav";
 
 const TitleSection = () => {
+  const homeRef = useNav("Home");
   return (
-    <Flex height="100vh" width="100%" position="relative">
+    <Flex
+      height="100vh"
+      width="100%"
+      position="relative"
+      id="home-section"
+      ref={homeRef}
+    >
       <Box height="100%" width="50%" backgroundColor="#3e64ff" opacity="0.1" />
       <Box height="100%" width="50%" backgroundColor="white" />
       <Box

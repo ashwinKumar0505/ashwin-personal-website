@@ -15,8 +15,10 @@ import {
   MAIN_SKILLS_DETAILS,
 } from "../../constants/resume-data";
 import { GiRoundStruck } from "react-icons/gi";
+import { useNav } from "../../customHooks/useNav";
 
 const ResumeSection = () => {
+  const resumeRef = useNav("Resume");
   const headingLinks: { name: string; to: string }[] = [
     {
       name: "Experience",
@@ -33,7 +35,12 @@ const ResumeSection = () => {
   ];
 
   return (
-    <Flex>
+    <Flex
+      id="resume-section"
+      marginTop="-70px"
+      paddingTop="70px"
+      ref={resumeRef}
+    >
       <Flex width="25%" justifyContent="center" paddingTop={20}>
         <Box>
           {headingLinks.map((link) => (
