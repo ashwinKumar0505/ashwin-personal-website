@@ -1,38 +1,23 @@
-import * as React from "react"
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+import * as React from "react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
+import TitleSection from "./components/title-section";
+import AboutMeSection from "./components/about-me-section";
+import ResumeSection from "./components/resume-section";
+import ProjectSection from "./components/projects-section";
+import OpenSourceContributionSection from "./components/open-source-contribution-section";
+import BlogsSection from "./components/blogs-section";
+import ContactMe from "./components/contact-me";
 
 export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
+  <ChakraProvider>
+    <Box height="100vh" width="100vw" overflowY="scroll">
+      <TitleSection />
+      <AboutMeSection />
+      <ResumeSection />
+      <ProjectSection />
+      <OpenSourceContributionSection />
+      <BlogsSection />
+      <ContactMe />
     </Box>
   </ChakraProvider>
-)
+);
